@@ -1,10 +1,10 @@
 --- 
 # information
 project: 
-  title: "title"
-  description: "description"
-  picture: docs/empty.png
-  author: "Author"
+  title: "wrapped_acorn_prng"
+  description: "ACORN (Additive Congruential Random Number) generator, a pseudo random number generator made for the ZerotoASIC course to be taped out on SkyWater Open Source PDK SKY130 process. Design inspired from: http://acorn.wikramaratna.org/ . Huge shoutout and appreciation to Steven Goldsmith for his invaluable assistance with Caravel. "
+  picture: docs/acorn_prng.png
+  author: "Zhenle Cao"
   license: LICENSE
 
 # optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2, wishbone & openram
@@ -13,14 +13,14 @@ interfaces: ['la1', 'gpio']
 # test within caravel
 caravel_test:
   recipe: "coco_test"
-  directory: "caravel_test"
-  id: 1
-  module_name: "wrapped_project"
+  directory: "caravel_acorn_prng"
+  id: 9
+  module_name: "wrapped_acorn_prng"
 
 # module test
 module_test:
-  recipe: "all" 
-  directory: "project directory"
+  recipe: "make_test_acorn_prng" 
+  directory: "acorn_prng"
   makefile: "Makefile"
 
 # run the wrapper formal proof
@@ -35,11 +35,11 @@ openlane:
 # source required for various configs and module instantiation
 source:
     - wrapper.v
-    - other source files here
+    - acorn_prng/src/acorn_prng.v
 
 # gds - check nothing on metal 5, DRC & LVS
 final:
   directory: "final"
-  gds_filename: "gds/project.gds"
-  lvs_filename: "verilog/gl/project.v"
-  lef_filename: "lef/project.lef"
+  gds_filename: "gds/wrapped_acorn_prng.gds"
+  lvs_filename: "verilog/gl/wrapped_acorn_prng.v"
+  lef_filename: "lef/wrapped_acorn_prng.lef"

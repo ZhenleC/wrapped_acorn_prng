@@ -11,7 +11,7 @@
 //`define USE_IRQ 1
 
 // update this to the name of your module
-module wrapped_project(
+module wrapped_acorn_prng(
 `ifdef USE_POWER_PINS
     inout vccd1,	// User area 1 1.8V supply
     inout vssd1,	// User area 1 digital ground
@@ -151,6 +151,32 @@ module wrapped_project(
     // Instantiate your module here, 
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
+    
+acorn_prng acorn_prng0(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+    .clk(wb_clk_i),
+    .reset(la1_data_in[0]),
+
+
+    // IO Pads
+
+    .load(io_in[8]),
+    .select(io_in[10:9]),
+    .gpio_seed(io_in[22:11]),
+    
+    
+    
+    .out(buf_io_out[34:23]),
+    .reset_out(buf_io_out[35]),
+    
+    // Logic Analyzer
+    .LA1_seed(la1_data_in[31:20])
+    
+    );
 
 endmodule 
 `default_nettype wire

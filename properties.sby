@@ -5,10 +5,10 @@ mode prove
 smtbmc
 
 [script]
-read -formal wrapper.v rest of your source files.v
-prep -top wrapped_project
+read -formal wrapper.v acorn_prng.v
+prep -top wrapped_acorn_prng
 
 [files]
 wrapper.v
 properties.v
-rest of your source files.v
+acorn_prng/src/acorn_prng.v

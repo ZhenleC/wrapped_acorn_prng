@@ -7,7 +7,9 @@ This ACORN generator is hardwired to have k = 16 and Modulus M = 2^12 (chosen du
 Engineer: Zhenle Cao
 
 Credit to Steven Goldsmith for his help on understanding Caravel and the testbenches
+
 Credit to Matt Venn for his assistance and teaching this course! 
+
 Credit to Roy Wikramaratna for inventing the ACORN algorithm
 
 The tools that will test and create the aggregated design are here: https://github.com/mattvenn/multi_project_tools

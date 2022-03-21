@@ -36,8 +36,8 @@ async def test_acorn_prng(dut):
     await ClockCycles(dut.clk, 80)
     dut.RSTB <= 1    
     
-    await RisingEdge(dut.uut.mprj.wrapped_acorn_prng.acorn_prng0.reset_out)
-    await FallingEdge(dut.uut.mprj.wrapped_acorn_prng.acorn_prng0.reset_out)
+    await RisingEdge(dut.uut.mprj.wrapped_acorn_prng_9.acorn_prng0.reset_out)
+    await FallingEdge(dut.uut.mprj.wrapped_acorn_prng_9.acorn_prng0.reset_out)
 
             
         

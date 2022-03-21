@@ -19,7 +19,7 @@ caravel_test:
 
 # module test
 module_test:
-  recipe: "make_test_acorn_prng" 
+  recipe: "test_acorn_prng" 
   directory: "acorn_prng"
   makefile: "Makefile"
 
